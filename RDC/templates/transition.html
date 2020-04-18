@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<body>
+<br>
+<br>
+<div class="container">
+        <h2>Follow these process to check Transition</h2>
+        <hr>
+        <p>• sudo su – rdtrpcg0</p>
+        <p>• sudo su – rdtrpcg0</p>
+        <p>• cd /transition_rpcg0/data</p>
+        <p>• check for loadfiles with ls -l load*</p>
+        <p>
+            <img src='/static/img/trans_1.png' alt="image loading issue">
+        </p>
+        <p>• check for existing processes with ps -ef | grep Load</p>
+        <p>
+            <img src='/static/img/trans_2.png' alt="image loading issue">
+        </p>
+        <p>• check if files are processing with tail -f /transition_rpcg0/util/traceinfo_country.out. Example: for
+                country HKG
+                tail -f /transition_rpcg0/util/traceinfo_ARG.out
+        </p>
+        <p><img src='/static/img/trans_3.png' alt="image loading issue"></p>
+        <p>You can also check status notes in CCM as an alternative means of verification.</p>
+        <p>Note: Please do check the counts whether it is decreasing or not.</p>
+        <h3>MQ Issue check up:</h3>
+        <p>Please use the Document from the below Box Link for MQ issues.</p>
+        <a href="https://ibm.ent.box.com/folder/60894793432" target="_blank">Box link here</a>
+    </div>
+
+
+</body>
+
+<br>
+<br>
+<a class = "float-left" href="{{ url_for('rdcwc') }}">back to main page</a>
+<a class="btn btn-primary float-right" href="{{ url_for('rdc') }}">Next &rarr;</a>
+<br>
+<br>
+{% endblock %}

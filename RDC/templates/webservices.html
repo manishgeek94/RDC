@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<div class="container">
+    <br>
+    <br>
+
+        <h2>Follow these steps to check web services</h2>
+    <hr>
+        <h3>There are 2 webservices: Epricer and IGF.</h3>
+        <p>• Check Epricer in</p>
+        <p><a href="https://ibmprdc1.portsmouth.uk.ibm.com/RDCServices/services/EPSRServiceBSI" target="_blank">https://ibmprdc1.portsmouth.uk.ibm.com/RDCServices/services/EPSRServiceBSI</a></p>
+        <p><a href="https://ibmrpcg0.portsmouth.uk.ibm.com/RDCServices/services/EPSRServiceBSI" target="_blank">https://ibmrpcg0.portsmouth.uk.ibm.com/RDCServices/services/EPSRServiceBSI</a></p>
+        <p><a href="https://ibmrpcg0.portsmouth.uk.ibm.com:9446/RDCServices/services/EPSRServiceBSI" target="_blank">https://ibmrpcg0.portsmouth.uk.ibm.com:9446/RDCServices/services/EPSRServiceBSI</a></p>
+        <p><a href="https://ibmrpcg00.portsmouth.uk.ibm.com:9446/RDCServices/services/EPSRServiceBSI" target="_blank">https://ibmrpcg00.portsmouth.uk.ibm.com:9446/RDCServices/services/EPSRServiceBSI</a></p>
+        <h1>If the service is up this is what you'll see:</h1>
+        <p><img src="/static/img/Webservices1.png" alt="image loading issues"></p>
+        <p>• Check IGF in</p>
+        <p><a href="https://ibmprdc1.portsmouth.uk.ibm.com/SRServiceHTTPRouter/services/SRServiceBSI" target="_blank">https://ibmprdc1.portsmouth.uk.ibm.com/SRServiceHTTPRouter/services/SRServiceBSI</a></p>
+        <p><a href="https://ibmrpcg0.portsmouth.uk.ibm.com:9446/SRServiceHTTPRouter/services/SRServiceBSI" target="_blank">https://ibmrpcg0.portsmouth.uk.ibm.com:9446/SRServiceHTTPRouter/services/SRServiceBSI</a></p>
+        <p><a href="https://ibmprdc1.portsmouth.uk.ibm.com/SRServiceHTTPRouter/services/SRServiceHTTP" target="_blank">https://ibmprdc1.portsmouth.uk.ibm.com/SRServiceHTTPRouter/services/SRServiceHTTP</a></p>
+        <p><a href="https://ibmrpcg11.portsmouth.uk.ibm.com:9446/SRServiceHTTPRouter/services/SRServiceHTTP" target="_blank">https://ibmrpcg11.portsmouth.uk.ibm.com:9446/SRServiceHTTPRouter/services/SRServiceHTTP</a></p>
+        <h1>If the service is up this is what you'll see:</h1>
+        <p><img src="/static/img/Webservices2.png" alt="image loading issues"</p>
+        <h1>Steps to check the Listeners status for Ops:</h1>
+    <hr>
+        <p>Login to g00 WAS console with ccm@us.ibm.com id (Password cust98newcust98new) :</p>
+        <p>(the password mentioned is iterated with extra numeric when changed, if you can't hit your brain, contact Sreekanth)</p>
+        <p><a href="https://ibmrpcg00.portsmouth.uk.ibm.com:9043/ibm/console/secure/securelogon.do" target="_blank">https://ibmrpcg00.portsmouth.uk.ibm.com:9043/ibm/console/secure/securelogon.do</a></p>
+        <p>Go to --->Servers--->Server Types---Websphere application servers--->	then you need to check the ejb02_server1 status on both ibmrpcg00 & ibmrpcg11 servers (highlighted below)</p>
+        <p>click on ejb02_server --->Communications--->Messaging--->Message Listener Service----> Listener Ports---> there you can find the listener status.
+            ***Make sure of performing the above step for both server ibmrpcg00 & ibmrpcg11 servers</p>
+        <p><img src="/static/img/Webservices3.png" alt="image loading issues"></p>
+    <br>
+        <p><img src="/static/img/Webservices4.png" alt="image loading issues"></p>
+        <p>If the listeners are not up, the screen shows like below and need to follow VCS callout procedure & ask them to fix the issue by restarting the listeners.</p>
+        <p><img src="/static/img/Webservices5.png" alt="image loading issues"></p>
+
+    </div>
+
+<br>
+<br>
+<a class="btn btn-primary float-left" href="{{ url_for('pcload') }}">&larr; Previous</a>
+<a class="btn btn-primary float-right" href="{{ url_for('distribution') }}">Next &rarr;</a>
+<br>
+<br>
+{% endblock %}

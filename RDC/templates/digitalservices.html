@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<div class="container">
+    <br>
+
+        <h2>Please follow these steps to check RDC Digital CMR Services</h2>
+    <hr>
+    <br>
+        <p>Check if the services status below appear as running with ibmccmp3 ping :</p>
+        <p><a href="https://ibmccmp3.portsmouth.uk.ibm.com:9449/CMRServicesV2/cmrs/ping" target="_blank">https://ibmccmp3.portsmouth.uk.ibm.com:9449/CMRServicesV2/cmrs/ping</a></p>
+        <p>The following screenshot shows that the services layer is running properly:</p>
+        <p><img src="/static/img/rdccmrdigital1.png" alt="image loading issue" style="height: 443px"></p>
+        <p>If the test returns an error or a blank page, the application may not have been started on the server(IBMCCMP3).  A simple check to determine whether the server is running is to execute:</p>
+        <p>ps -ef|grep cmrservices</p>
+        <p>It should show like in the below screen :</p>
+        <p><img src="/static/img/rdccmrdigital2.png" alt="image loading issue" style="height: 393px"></p>
+    <br>
+        <p>WebSphere Application Server (WAS) Team from VCS by raising a TSRM/SCCD Ticket can be engaged to help with this issue.</p>
+        <p>Check if the service layer ping is accessible:</p>
+        <p><a href="https://ibmccmp3.portsmouth.uk.ibm.com:9445/CISearchServices/service/ping" target="_blank">https://ibmccmp3.portsmouth.uk.ibm.com:9445/CISearchServices/service/ping</a></p>
+        <p>It should show that the connection to the FindCMR index is successful.</p>
+        <p><img src="/static/img/rdccmrdigital3.png" alt="image loading issue"></p>
+    <br>
+        <p>If it's not, check the elastic search index.  (use the latest document CI Elastic Loader and Search Services - Operations Guide for instructions).</p>
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a class="btn btn-primary float-left" href="{{ url_for('ccbt') }}">&larr; Previous</a>
+<a class="btn btn-primary float-right" href="{{ url_for('salesConnect') }}">Next &rarr;</a>
+<br>
+<br>
+{% endblock %}

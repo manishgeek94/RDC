@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<div class="container">
+    <br>
+    <br>
+        <h3>As part of weekly RDC applications checkup, we also need to mandatorily verify the C360 Cloud indexes by following below Instructions:</h3>
+    <hr>
+    <br>
+        <p>• We need to verify all the 32 indexes in the below slack channel, whether all the 32 indexes are passed or not.</p>
+        <p>• Slack channel: <a href ="https://chiefdataoffice.slack.com/archives/CQB2DANTB" target="_blank">https://chiefdataoffice.slack.com/archives/CQB2DANTB</a></p>
+        <p>• If you find all the indexes or most of the indexes are successfully passed, then we can consider as C360 Cloud indexes as green and If 1 or 2 indexes failed, then please inform to Preethi & Shreya, so that they can help in re-run the single index.</p>
+        <p>• Successfully message will look like below</p>
+        <p><img src="/static/img/cloud3601.png" alt="image loading issue"></p>
+        <p>• If the Indexes did not start for the weekend or all/most of the indexes were failed, then we need to check the reason why they failed or not started.</p>
+    <br>
+        <p>• List of all 32 indexes are in below link, which needs to be verified.</p>
+        <h3><a href="/rdcwc/cl360/index-refresh">Index Refersh Over Weekend </a></h3>
+    <br>
+        <p>• Please use the below link to check the logs of Index jobs in Cloud Kubernetes Environment.</p>
+    <br>
+        <h4>C360 Index Refreshes Ops Guide </h4>
+        <p>This will automatically save the ops guide on your local machine</p>
+        <object src="/static/opsguidecloud.docx"><embed src="/static/opsguidecloud.docx"></embed></object>
+    <br>
+        <h4>Note: If any index fail in set Alias step, then please inform Preethi, so that she will help for setting up Alias.</h4>
+
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a class="btn btn-primary float-left" href="{{ url_for('lh') }}">&larr; Previous</a>
+<a class="btn btn-primary float-right" href="{{ url_for('fs') }}">Next &rarr;</a>
+<br>
+<br>
+
+{% endblock %}

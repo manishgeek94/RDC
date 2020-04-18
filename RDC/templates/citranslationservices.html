@@ -1,0 +1,95 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<div class="container">
+    <br>
+    <br>
+
+        <h2> Follow these steps to check translation services</h2>
+    <hr>
+        <p># CI Translation Service allows an application to convert from a Site Party Id to a CMR (Outbound from iERP)
+            and from CMR to a Site Party Id (Inbound to iERP). In addition there are operations exposed within the
+            Translation Service for admin purposes (create, update, delete, find, etc). The Admin functions can also be
+            utilized via the RDC GUI/Find CMR.</p>
+        <p># The service implementation consists of a JAX-RS (REST) endpoint which intercepts HTTP messages (POST for
+            actions and GET for status messages) and processes the XML content sent within the HTTP message for
+            different functions. </p>
+        <p># For more details on the individual operations (and XML formats) consult the Web Services Wiki (Translation
+            Services) at this link: </p>
+        <p><a href="https://w3-connections.ibm.com/wikis/home?lang=en-us#/wiki/W9636a2b06f44_406a_8159_214bf99bed98/page/REST%20Operations"
+                target="_blank">https://w3-connections.ibm.com/wikis/home?lang=en-us#/wiki/W9636a2b06f44_406a_8159_214bf99bed98/page/REST%20Operations</a>
+        </p>
+    <hr>
+        <h3>Verifying the Translation Service is active and responding to Requests</h3>
+    <br>
+        <p>To test that the Translation Service EAR is active and processing incoming requests, simply paste the
+            environment specific endpoint URL into a browser (which by default sends an HTTP GET request to the
+            endpoint). If active, the Translation Service will return a message saying the following: ‘Hello, This is a
+            Translation REST Service!’. </p>
+    <br>
+        <p><img src="/static/img/citranslation1.png" alt="image loading issues"></p>
+    <br>
+        <p>The Production Translation Service endpoints is the follow:</p>
+        <p><a href="https://ibmccmtsp.portsmouth.uk.ibm.com/CCMSTranslationService/jaxrs/translation/xml" target="_blank">https://ibmccmtsp.portsmouth.uk.ibm.com/CCMSTranslationService/jaxrs/translation/xml</a></p>
+        <p><a href="https://ibmrpcw00.portsmouth.uk.ibm.com/CCMSTranslationService/jaxrs/translation/xml" target="_blank">https://ibmrpcw00.portsmouth.uk.ibm.com/CCMSTranslationService/jaxrs/translation/xml</a></p>
+        <p><a href="https://ibmrpcw11.portsmouth.uk.ibm.com/CCMSTranslationService/jaxrs/translation/xml" target="_blank">https://ibmrpcw11.portsmouth.uk.ibm.com/CCMSTranslationService/jaxrs/translation/xml</a></p>
+        <p><a href="https://ibmrpcw22.portsmouth.uk.ibm.com/CCMSTranslationService/jaxrs/translation/xml" target="_blank">https://ibmrpcw22.portsmouth.uk.ibm.com/CCMSTranslationService/jaxrs/translation/xml</a></p>
+        <p><a href="https://ibmrpcw33.portsmouth.uk.ibm.com/CCMSTranslationService/jaxrs/translation/xml" target="_blank">https://ibmrpcw33.portsmouth.uk.ibm.com/CCMSTranslationService/jaxrs/translation/xml</a></p>
+    <br>
+        <h3>Testing a Translation Service translation with the Firefox Poster Plugin</h3>
+    <br>
+        <p>To test the Translation Service you must have an HTTP Client which can send HTTP POST messages along with XML content.  There are several of these available on the internet, and the CI Development team recommends the Poster Plugin/Add-on for Firefox due to its simplicity in usage. </p>
+    <br>
+        <h3>Installing the Poster Firefox Add-on Plugin </h3>
+    <br>
+        <p>To download and install the Poster Plugin Add-on:</p>
+        <p>1. Select Tools->Add-ons from the Firefox browser menu.  </p>
+        <p>2. Type in ‘Poster’ in the search bar at the top of the screen.  Click the Search button icon.</p>
+        <p>3. Scroll until you find the Poster plugin, and click “Add to Firefox’.  Follow the on-screen instructions to complete the installation.</p>
+        <p><img src="/static/img/citranslation2.png" alt="image loading issues"></p>
+        <h3>Using the Poster Firefox Add-on Plugin</h3>
+        <p>To test with the Poster plugin, select Tools -> Poster from the Firefox browser menu.
+            A new window will appear similar to the following:</p>
+        <p><img src="/static/img/citranslation3.png" alt="image loading issues" style = "height: 441px"></p>
+    <br>
+        <p>Fill in the URL field with one of the Translation Service endpoints.  Typically use the load balancer url </p>
+        <p><a href="https://ibmccmtsp.portsmouth.uk.ibm.com/CCMSTranslationService/jaxrs/translation/xml" target="_blank">https://ibmccmtsp.portsmouth.uk.ibm.com/CCMSTranslationService/jaxrs/translation/xml</a></p>
+        <p>Fill in the Content to Send field with the proper XML format for the operation you would like to execute.</p>
+        <p>Next click the POST button.</p>
+        <p>The request will be sent to the Translation Service server, and a response will be returned with the outcome of the request. </p>
+        <p><img src="/static/img/citranslation4.png" alt="image loading issues" style = "height: 394px"></p>
+    <br>
+        <h3>Sample XML to perform a FINDSITEIDBYCMR request</h3>
+        <p><img src="/static/img/citranslation7.png" alt="image loading issues" style = "height: 341px"></p>
+        <h3>Sample XML to perform a FINDCMRBYSITEID request</h3>
+        <p><img src="/static/img/citranslation8.png" alt="image loading issues" style = "height: 341px"></p>
+        <p>NOTE: For more details on the XML formats and required input parameters see the individual operation details on the CI Web Services wiki for the Translation Service:  </p>
+        <p><a href="https://w3-connections.ibm.com/wikis/home?lang=en-us#/wiki/W9636a2b06f44_406a_8159_214bf99bed98/page/REST%20Operations
+
+            " target="_blank">https://w3-connections.ibm.com/wikis/home?lang=en-us#/wiki/W9636a2b06f44_406a_8159_214bf99bed98/page/REST%20Operations
+
+        </a></p>
+    <hr>
+        <h3>Additional Steps to check CI Translation Services (its needed just in case step 11 does not work)</h3>
+    <br>
+        <p>Access RDC Was Console with ccm@us.ibm.com id </p>
+        <p><a href="https://ibmrpcw00.portsmouth.uk.ibm.com:9043/ibm/console/login.do?action=secure" target="_blank">https://ibmrpcw00.portsmouth.uk.ibm.com:9043/ibm/console/login.do?action=secure </a></p>
+        <p>Go to Applications -> Enterprise and check if CCMSRESTServicesEAR  and CCMS-CFAppEAR  are up :</p>
+        <p><img src="/static/img/citranslation5.png" alt="image loading issues" style="height: 387px"></p>
+    <br>
+        <p>The final check on Translation Service is using the below functionality on RDC Gui, so please access the link below (the CITS:VIEW or CITS:ADMN role is required): </p>
+        <p><a href="https://ibmpccms.portsmouth.uk.ibm.com/webapp/RDx/RDCustomer" target="_blank">https://ibmpccms.portsmouth.uk.ibm.com/webapp/RDx/RDCustomer</a></p>
+        <p><img src="/static/img/citranslation6.png" alt="image loading issues" style = "height: 390px"></p>
+    <br>
+        <p>• And search any record, i.e. S0075Q0JX0  (MPP:  0010261250 and CMR# 094993 from SysCode: 724) or S041360984 (MPP:  0041360984 and CMR# JBOXBV from SysCode: 724).</p>
+    </div>
+
+<br>
+<br>
+<br>
+<a class="btn btn-primary float-left" href="{{ url_for('cfcmr') }}">&larr; Previous</a>
+<a class="btn btn-primary float-right" href="{{ url_for('ierp') }}">Next &rarr;</a>
+<br>
+<br>
+
+{% endblock %}

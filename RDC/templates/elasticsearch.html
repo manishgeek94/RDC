@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<div class="container">
+    <br>
+    <br>
+        <h2>Follow these steps to check Elastic Search</h2>
+    <hr>
+        <p>• All monitoring activities will primarily be done via the Kibana application. To check the health of the
+            cluster, login to Kibana via the URL</p>
+        <p><a href=" http://tpydalespp001.sl.bluecloud.ibm.com:5601/app/kibana" target="_blank">
+                http://tpydalespp001.sl.bluecloud.ibm.com:5601/app/kibana</a></p>
+        <p>Below is how kibana login page looks like</p>
+        <p><img src="/static/img/elasticsearch1.png" alt="image loading issue"></p>
+        <p>• Login with your username and password. If you do not have access, please request one from an Elastic Search
+            administrator.</p>
+        <p>• After logging in, click on Monitoring on the left navigation panel. This will show the overall status of
+            the cluster.</p>
+        <p>below is how Overall cluster Health looks like</p>
+        <p><img src="/static/img/elasticsearch2.png" alt="image loading issue"></p>
+        <p>• To check the health of each Elastic Search node, click the Nodes link under Elasticsearch.</p>
+        <p>below is how ES Nodes Health looks like</p>
+        <p><img src="/static/img/elasticsearch3.png" alt="image loading issue"></p>
+    <br>
+        <p>• If any node is offline, Login to the server (tpydalespp001.sl.bluecloud.ibm.com) using the mesadmin user.
+            and go to the location /elastic6/elasticsearch-6.2.0/bin. Check first if any instance of Elasticsearch is
+            running by executing the command:
+            ps -ef | grep Elasticsearch</p>
+
+        <p>• If anything is down, need to follow the instructions as per the doc
+            (CI Elastic Loader and Search Services - Operations Guide v0.4) from below Box link
+            Box link:
+        </p>
+        <p><a href="https://ibm.ent.box.com/folder/30280772801"
+                target="_blank">https://ibm.ent.box.com/folder/30280772801</a></p>
+    </div>
+
+<br>
+<br>
+<br>
+<br>
+<a class="btn btn-primary float-left" href="{{ url_for('coverage') }}">&larr; Previous</a>
+<a class="btn btn-primary float-right" href="{{ url_for('cfcmr') }}">Next &rarr;</a>
+<br>
+<br>
+
+{% endblock %}

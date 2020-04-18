@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<div class="container">
+    <br>
+    <br>
+        <h2>Follow these steps to check IERP</h2>
+    <hr>
+        <p>• Go on ibmrpcg0 server, under rdtrpcg0 id, and check whether the crontab is uncommented (if no reason to be commented it must be uncommented)</p>
+        <p><img src="/static/img/ierp1.png" alt="image loading issue"></p>
+        <p>• Confirm whether the Extractor job processed successfully on last run (it runs on each 10min) with:</p>
+        <p>tail -f /ierp/extr/traceinfoIERPExtractorRealTime.out</p>
+        <p><img src="/static/img/ierp2.png" alt="image loading issue"></p>
+        <p>• Confirm whether the Publish job processed successfully on last run with:</p>
+        <p>tail -f /ierp/xmlpub/traceinfoIERPDataXMLGenPublish.out</p>
+        <p><img src="/static/img/ierp3.png" alt="image loading issue"></p>
+        <p>check generated xml</p>
+        <p>Go to g00server with sudo su – rdtrpcg0</p>
+        <p>then go to the path</p>
+        <p>cd /ierp/xmlpub/xmldata/processed</p>
+        <p>check with the command ls -ltr|tail -10 the last time and date of generated xml.</p>
+        <p>check the current date and Timestamp by using date command.</p>
+        <p>If the processed file is of current date and time then its fine </p>
+        <p><img src="/static/img/ierp4.png" alt="image loading issue" style = "height: 471px"></p>
+        <p>If not, then please go to the path cd /ierp/xmlpub/xmldata and check with the  below command that publisher is running or not.</p>
+        <p>If its running and still files are not generated then please kill the publisher and restart again. And again check the generated xml.</p>
+        <p>ps -ef|grep -i ierp|grep -v mqm</p>
+        <p>to kill the publisher : kill -9 id</p>
+        <p><img src="/static/img/ierp5.png" alt="image loading issue"></p>
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a class="btn btn-primary float-left" href="{{ url_for('citranslationservices') }}">&larr; Previous</a>
+<a class="btn btn-primary float-right" href="{{ url_for('tgmeservices') }}">Next &rarr;</a>
+<br>
+<br>
+
+{% endblock %}

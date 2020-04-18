@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<div class="container">
+    <br>
+    <br>
+        <h2>Follow these steps to check CCBT application</h2>
+    <hr>
+        <h4>1 – Checking if CCBT GUI is available:</h4>
+    <br>
+        <p>A) Go to </p>
+        <p><a href="https://ibmrpcw22.portsmouth.uk.ibm.com/sales/ccbt/login" target="_blank">https://ibmrpcw22.portsmouth.uk.ibm.com/sales/ccbt/login</a></p>
+        <p>Login with your Intranet ID:</p>
+        <p><img src="/static/img/ccbt1.png" alt="image loading issue" style="height: 303px"></p>
+    <br>
+    <br>
+        <p>B) Click on Tagging tab:</p>
+        <p><img src="/static/img/ccbt2.png" alt="image loading issue" style="height: 143px"></p>
+    <br>
+    <br>
+        <p>Click on Tag Definition tab:</p>
+    <br>
+        <p><img src="/static/img/ccbt3.png" alt="image loading issue" style="height: 343px"></p>
+        <p>Check if some data was loaded on this page.</p>
+        <p>If Yes, We are OK.</p>
+    <br>
+        <h4>2 – Checking Application running on Server:</h4>
+    <br>
+
+        <p>Server: ibmrpcg0.portsmouth.uk.ibm.com  </p>
+        <p>User: rdtrpcg0</p>
+        <p>A) Login SSH on ibmrpcg0.portsmouth.uk.ibm.com  under user rdtrpcg0</p>
+        <p>Expected:</p>
+        <p><img src="/static/img/ccbt4.png" alt="image loading issue"></p>
+        <p>If you can see the application running, we are OK.</p>
+        <p>If not, please, start it:</p>
+        <p>Run: nohup /transition_rpcg0/ccbt/bin/start.CCBTUploadJob &	</p>
+        <p>Check: ps -ef | grep CGSPBatchJobsMain</p>
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a class="btn btn-primary float-left" href="{{ url_for('tws') }}">&larr; Previous</a>
+<a class="btn btn-primary float-right" href="{{ url_for('digitalservices') }}">Next &rarr;</a>
+<br>
+<br>
+{% endblock %}

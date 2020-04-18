@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<div class="container">
+    <br>
+    <br>
+        <h2>Follow these steps to verify everything is good at TWS end</h2>
+    <hr>
+        <h3>How to check the Workstation on TWS v9.2 Prod</h3>
+    <br>
+        <p>Log in:</p>
+        <p><a href="https://b06cxnn0p0256.portsmouth.uk.ibm.com:16311/ibm/console/logon.jsp"
+                target="_blank">https://b06cxnn0p0256.portsmouth.uk.ibm.com:16311/ibm/console/logon.jsp</a></p>
+        <p>Then, click at the Icon below and choose the Monitor Workstation.</p>
+        <p><img src="/static/img/tws1.png" alt="image loading issue" style="height: 143px"></p>
+        <p>Select the first option (All Workstations in plan (Distributed))</p>
+        <p><img src="/static/img/tws2.png" alt="image loading issue" style="height: 201px"></p>
+        <p>Click on Workstation option =>> Open below SS window =>> then click on Specify connection properties =>>Enter
+            your User id and password(Connection Credentials) and Click on OK button.</p>
+    <br>
+        <p><img src="/static/img/tws3.png" alt="image loading issue" style="height: 343px"></p>
+    <br>
+        <p>On the step below you must already changed you pwd on both server (for TWS, not on IBMSQMS)</p>
+        <p>Now, filter the search field using (ibm*) and select the option Workstation, and apply</p>
+        <p>Then you will be able to see all Workstation we have</p>
+    <br>
+        <p><img src="/static/img/tws4.png" alt="image loading issue" style="height: 273px"></p>
+    <br>
+        <p>If all of them are LINKED AND Green Yes, we are fine, if not you need contact VCS by a TSRM/SCCD ticket or someone from TWS team.</p>
+        <p><img src="/static/img/tws5.png" alt="image loading issue"></p>
+
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a class="btn btn-primary float-left" href="{{ url_for('tgme3') }}">&larr; Previous</a>
+<a class="btn btn-primary float-right" href="{{ url_for('ccbt') }}">Next &rarr;</a>
+<br>
+<br>
+{% endblock %}

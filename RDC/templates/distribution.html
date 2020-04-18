@@ -1,0 +1,95 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<div class="container">
+    <br>
+    <br>
+
+        <h2>Follow these steps to check Distribution</h2>
+    <hr>
+        <p>5.1 – Check if entries in the cron are uncommented.</p>
+        <p>• Login to ibmccmpo</p>
+        <p>• sudo su - dsadmpo</p>
+        <p>• Check if Apply is uncommented in the crontab:</p>
+        <p>crontab -l | grep "Apply"</p>
+        <p><img src="/static/img/distribution1.png" alt="image loading issues" style="height: 187px;"></p>
+        <p>• Check if Extraction is uncommented in the crontab:</p>
+        <p>crontab -l | grep "Extraction"</p>
+        <p><img src="/static/img/distribution2.png" alt="image loading issues" style="height: 113px;
+            "></p>
+    <br>
+        <h4>PS1: If uncommented, it is OK. </h4>
+        <h4>PS2: These cron entries should be uncommented, but if they are not, please contact VCS to know why it is
+            commented and report in the reply note to CCM.</h4>
+    <br>
+        <p>5.2 – Check if Apply and Extraction are running:</p>
+        <p>A) Open a DB2 connection:</p>
+        <p>db2 connect to EUSIDB2B user mastpro using breezy34</p>
+        <p><img src="/static/img/distribution3.png" alt="image loading issues"></p>
+        <p>B) Get the date/time with command: date</p>
+        <p><img src="/static/img/distribution4.png" alt="image loading issues"></p>
+        <p>C) Execute the query:</p>
+        <p>db2 select "batchnum, status, LOADDATETIME, LASTUPDATE from sapr3.loadjobs where LOADDATETIME > '2016.05.01
+            00:00:00'" </p>
+    <hr>
+        <h4>PS: The date/time for the field LOADDATETIME will be completed with 16 minutes before the date/time that you
+            got with the command “date” in the Step B.</h4>
+        <p>The results will be like:</p>
+        <p><img src="/static/img/distribution5.png" alt="image loading issues" style="height: 300px;"></p>
+        <h3>PS: If we have results for this query, Extraction and Apply is Ok. You can ignore PS2 and the steps D to H.
+        </h3>
+    <hr>
+        <h4>PS2: If we have no results for this query, do not means necessarily that we have problems with Distribution.
+            It can means that we have no batches to be processed. In this case following the next steps”(D to H) to
+            check:</h4>
+    <br>
+        <p>D) Login to RDC GUI in </p>
+        <p><a href="https://ibmpccms.portsmouth.uk.ibm.com/webapp/RDx/RDCustomer"
+                target="_blank">https://ibmpccms.portsmouth.uk.ibm.com/webapp/RDx/RDCustomer</a></p>
+        <p>E) Go to Distribution → Idocs → Distribute Idocs with Search and perform a search using Customer # =
+            0039204409 (any kunnr) and click in Find.</p>
+        <p><img src="/static/img/distribution6.png" alt="image loading issues"></p>
+    <br>
+        <p>F) Now click in Send Request as following:</p>
+        <p><img src="/static/img/distribution7.png" alt="image loading issues"></p>
+    <br>
+        <p>G) Done. Customer was sent to SAP. Wait 15 minutes.</p>
+        <p>H) Now, repeat the step “Check if Apply and Extraction are running” executing Step A, B and C. </p>
+    <hr>
+        <h4>PS1: If this time we have results for the query, Extraction and Apply is Ok what means Distribution is OK.
+        </h4>
+        <h4>PS2: If not, probably we have an issue with Distribution</h4>
+    <br>
+        <p>5.3 – Check if we have FAILED jobs in Distribution</p>
+        <p>A) Open a DB2 connection:</p>
+        <p>db2 connect to EUSIDB2B user mastpro using breezy34</p>
+        <p><img src="/static/img/distribution8.png" alt="image loading issues"></p>
+        <p>B) Execute the following command:</p>
+        <p>db2 "SELECT DESTINATION_ID, LANG_ID, ACTGRP, BATCHNUM, STATUS, COUNT(*), MIN(CHGTS) FROM SAPR3.ICOMMIDOC
+            WHERE MANDT='100' AND STATUS IN ('FAILED') group by DESTINATION_ID, LANG_ID, ACTGRP, BATCHNUM, STATUS"</p>
+    <hr>
+        <h4>PS1: If we have no FAILED jobs, It is OK and you can igonre steps C to F. The result will be like:</h4>
+        <p><img src="/static/img/distribution9.png" alt="image loading issues"></p>
+        <h4>PS2: If we have FAILED jobs, the only thing you need to do, is set this jobs with status as SUSPENDED. To do
+            it, execute steps C to F.</h4>
+        <p>C) To set the job as SUSPENDED, we need to get two details about the job. The BATCHNUM and DESTINATION_ID.
+        </p>
+        <p><img src="/static/img/distribution10.png" alt="image loading issues"></p>
+        <p>These details will be used in the query to set the status as SUSPENDED, like:</p>
+        <h5>db2 "update SAPR3.ICOMMIDOC set status = 'SUSPENDED' where mandt = '100' and destination_id = 'FPAF100SW3'
+            and batchnum='3091035'"</h5>
+    <br>
+    <br>
+        <h4>PS1: If we have more than one FAILED jobs, execute the query one by one to set the status as SUSPENDED.</h4>
+        <p>D) Before execute the queries, check if we have no more FAILED jobs executing the step B again and report all
+            jobs seted as SUSPENDED in the reply note.</p>
+
+    </div>
+
+<br>
+<br>
+<a class="btn btn-primary float-left" href="{{ url_for('webservices') }}">&larr; Previous</a>
+<a class="btn btn-primary float-right" href="{{ url_for('eswtagging') }}">Next &rarr;</a>
+<br>
+<br>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<style>
+    .word{
+        font-weight: bold;
+        }
+</style>
+<div class="container">
+    <br>
+    <br>
+        <h2>PLease follow these steps to check Address Work File</h2>
+    <hr>
+    <br>
+        <p>• Login to RDC GUI in </p>
+        <p><a href="https://ibmpccms.portsmouth.uk.ibm.com/webapp/RDx/RDCustomer" target="_target">https://ibmpccms.portsmouth.uk.ibm.com/webapp/RDx/RDCustomer</a></p>
+    <br>
+        <p>• Go to Address Work File(AWF) and perform search.</p>
+        <p><img src="/static/img/awf1.png" alt="image loading issue" style="height: 343px"></p>
+    <br>
+        <p>• If record will display,its mean AWF is UP.</p>
+        <p>• If you don’t have access for the AWF,Please apply through OneTeam</p>
+    <br>
+    <p><span class="word"> FYI: </span><a href="https://w3-03.ibm.com/finance/access/AELogin.wss" target="_blank">https://w3-03.ibm.com/finance/access/AELogin.wss</a></p>
+        <p>Selection Creteria to be applied for AWF:</p>
+        <p>One Team--Access Management-- Search application by name (search with RDC)-- select RDC--
+            Application selection(AWF)-- Type of access (Inquiry user) -- Region WW-- kind of data --all
+            Countries.
+</p>
+    </div>
+
+
+<br>
+<br>
+<br>
+<br>
+<a class="btn btn-primary float-left" href="{{ url_for('tc') }}">&larr; Previous</a>
+<a class="btn btn-primary float-right" href="{{ url_for('dprop') }}">Next &rarr;</a>
+<br>
+<br>
+
+{% endblock %}

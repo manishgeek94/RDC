@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+
+    <div class="container">
+<br>
+<br>
+    <h2>Follow these steps to check ESW tagging</h2>
+<hr>
+    <p>• Login to ibmrpcw0</p>
+    <p>• sudo su – wasrpcw0</p>
+    <p>• Check if the service is running with</p>
+    <p>ps -ef | grep Tag</p>
+    <p><img src="/static/img/eswtagging.png" alt="image loading issues"></p>
+    <p>• Check the logs with</p>
+    <p>tail -n50 /home/wasrpcw0/TagChildren/TagChildrenBuilderLog.log</p>
+    <p>• You'll see messages like this:</p>
+    <p>******************************************************************</p>
+    <p>Run Time:Fri Nov 05 17:48:19 GMT 2010,  DETAILS: PROCESSID: 2010-11-05-17.48.20.000000,STATUS: SUCCESFUL WITH NO ERRORS, TAG REQUIRED:3231, TAGGED:3231, ERRORS:0,ERROR DESC:{}</p>
+    <p>• You can come across this kind of message as well:</p>
+    <p>******************************************************************</p>
+    <p>Run Time:Fri Nov 05 08:31:56 GMT 2010,  DETAILS: PROCESSID: 2010-11-05-08.31.56.000000,STATUS: ESW_Bean:getLastRunTS():- Got NULL Last Run Timestamp! ,ERROR DESC:{}</p>
+    <p>It's just a warning. It means there was nothing to process at the time.</p>
+
+    </div>
+<br>
+<br>
+<a class="btn btn-primary float-left" href="{{ url_for('distribution') }}">&larr; Previous</a>
+<a class="btn btn-primary float-right" href="{{ url_for('coverage') }}">Next &rarr;</a>
+<br>
+<br>
+{% endblock %}

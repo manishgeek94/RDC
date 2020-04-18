@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<div class="container">
+    <br>
+    <br>
+        <h3>Follow these steps to check WAS logs on W11/W22/W33 servers.</h3>
+    <hr>
+    <br>
+        <h4>W11</h4>
+    <br>
+        <p>1) login to w11 in user wasrpcw11</p>
+        <p>2) Goto below path:</p>
+        <p>/usr/WebSphere_rpcw1/AppServer/profiles/serverejb01/logs/server1</p>
+        <p>3) ls -ltr</p>
+        <p>4) tail -f SystemOut.log</p>
+        <p>Please check that the log should be of current date as below:</p>
+        <p><img src="/static/img/wasserverlog.png" alt="image loading issue" style="height: 258px;"></p>
+    <br>
+        <p>And the log should not contain any error message or stopped message like below:</p>
+    <br>
+        <p><img src="/static/img/wasserverlog2.png" alt="image loading issue" style="height: 228px;"></p>
+    <br>
+        <h4>W22</h4>
+    <br>
+        <p>1) login to w11 in user wasrpcw22</p>
+        <p>2) Goto below path:</p>
+        <p>/usr/WebSphere_rpcw2/AppServer/profiles/serverejb01/logs/server1</p>
+        <p>3) ls -ltr</p>
+        <p>4) tail -f SystemOut.log</p>
+    <br>
+        <h4>W33</h4>
+    <br>
+        <p>1) login to w33 in user wasrpcw33</p>
+        <p>2) Goto below path:</p>
+        <p>/usr/WebSphere_rpcw3/AppServer/profiles/serverejb01/logs/server1</p>
+        <p>3) ls -ltr</p>
+        <p>4) tail -f SystemOut.log</p>
+        <p>Please follow the same process for all three remaining servers.</p>
+        <p>If the server is stopped, please contact VCS team to restart the server</p>
+    </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a class="btn btn-primary float-left" href="{{ url_for('fs') }}">&larr; Previous</a>
+<a class = "float-right" href="{{ url_for('rdcwc') }}">back to main page</a>
+<br>
+<br>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+ <div class="container">
+     <br>
+     <br>
+        <h2>Follow these steps to check RDC</h2>
+     <hr>
+        <p>• Login to RDC GUI in </p>
+        <p><a
+                href="https://ibmpccms.portsmouth.uk.ibm.com/webapp/RDx/RDCustomer" target="_blank">https://ibmpccms.portsmouth.uk.ibm.com/webapp/RDx/RDCustomer</a>
+        </p>
+        <p>• Go to customers and perform a search</p>
+        <p><img src="/static/img/RDCimg.png" alt="image loading issue"></p>
+        <hr>
+        <p>• Just for safe, check if Logical Servers(w00/w11/w22/w33) urls are accessible on the browser (no need to login).</p>
+        <p><a href="https://ibmrpcw00.portsmouth.uk.ibm.com/webapp/RDx/RDCustomer/CustomerLogin" target="_blank">https://ibmrpcw00.portsmouth.uk.ibm.com/webapp/RDx/RDCustomer/CustomerLogin</a></p>
+        <p><a href="https://ibmrpcw11.portsmouth.uk.ibm.com/webapp/RDx/RDCustomer/CustomerLogin" target="_blank">https://ibmrpcw11.portsmouth.uk.ibm.com/webapp/RDx/RDCustomer/CustomerLogin</a></p>
+        <p><a href="https://ibmrpcw22.portsmouth.uk.ibm.com/webapp/RDx/RDCustomer/CustomerLogin" target="_blank">https://ibmrpcw22.portsmouth.uk.ibm.com/webapp/RDx/RDCustomer/CustomerLogin</a></p>
+        <p><a href="https://ibmrpcw33.portsmouth.uk.ibm.com/webapp/RDx/RDCustomer/CustomerLogin" target="_blank">https://ibmrpcw33.portsmouth.uk.ibm.com/webapp/RDx/RDCustomer/CustomerLogin</a></p>
+        <p></p>
+    </div>
+<br>
+<br>
+<a class="btn btn-primary float-left" href="{{ url_for('transition') }}">&larr; Previous</a>
+<a class="btn btn-primary float-right" href="{{ url_for('pcload') }}">Next &rarr;</a>
+<br>
+<br>
+{% endblock %}

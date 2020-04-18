@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<br>
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Heading Row -->
+    <div class="row align-items-center my-5">
+      <div class="col-lg-7">
+        <img class="img-fluid rounded mb-4 mb-lg-0" src="/static/img/Customer-Information.png" alt="image loading issue">
+      </div>
+      <!-- /.col-lg-8 -->
+      <div class="col-lg-5">
+        <h1 class="font-weight-light">{{params['main_name']}}</h1>
+        <p>We are RDC CI-OPS team, handling more than 20 Applications under Customer Information IBM.
+              RDC is the single worldwide Trusted Source for Customer Data in IBM.</p>
+        <a class="btn btn-primary" href="/visits">No of times, page is visited</a>
+      </div>
+      <!-- /.col-md-4 -->
+    </div>
+    <!-- /.row -->
+<br>
+    <!-- Call to Action Well -->
+    <div class="card text-white bg-secondary my-5 py-4 text-center">
+      <div class="card-body">
+        <p class="text-white m-0">{{params['alert-text']}} </p>
+      </div>
+    </div>
+<br>
+    <br>
+    <!-- Content Row -->
+    <div class="row">
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title">{{params['card-one']}}</h2>
+            <p class="card-text">We check every application on weekends and make sure RDC has no issues 24/7.</p>
+          </div>
+          <div class="card-footer">
+            <a href="/rdcwc" class="btn btn-primary btn-sm">Go to checkup page</a>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-4 -->
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title">{{params['card-two']}}</h2>
+            <p class="card-text">Here, we display analysed data which we get in RDC every day.</p>
+          </div>
+          <div class="card-footer">
+            <a href="/rdcda0" class="btn btn-primary btn-sm">Go to check data</a>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-4 -->
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title">{{params['card-three']}}</h2>
+            <p class="card-text">It gives you an overview of how an outbreak turns into a pandemic in few months</p>
+          </div>
+          <div class="card-footer">
+            <a href="/covid19" class="btn btn-primary btn-sm">Go to check data</a>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-4 -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+ {% endblock %}

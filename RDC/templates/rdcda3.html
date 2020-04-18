@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IDM</title>
+</head>
+<style>
+
+    p{
+    color: blue;
+    }
+
+</style>
+<br>
+<br>
+<br>
+<body>
+<div class="container">
+
+<img src= 'static/images/idm_sources.png' alt="Chart" height="500" width="500">
+<br>
+    <br>
+    <br>
+
+<p><strong>Total_record-March: {{total_records}}</strong></p>
+    <br>
+    <br>
+<h2 class="btn btn-warning"><a href="{{url_for('rdcda0') }}">Back</a></h2>
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock %}

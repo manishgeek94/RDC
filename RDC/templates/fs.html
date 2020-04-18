@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<div class="container">
+    <br>
+    <br>
+        <h2>Follow these steps to check file space in all the servers</h2>
+    <hr>
+    <br>
+        <p>• Check the crontab for our main applications (rdtrpcg0, wasrpcw0/1/2/3, revrpcw0/2, cturpcw1, rdcccmp3). See if crontab is in place.</p>
+        <p>Crontab -l on all servers. Appeared, OK.</p>
+        <p>• Check the FS for our main applications:</p>
+    <br>
+        <h4><< IBMRPCW0 >></h4>
+        <p>df -k /home/wasrpcw0</p>
+        <p>df -k /usr/WebSphere_rpcw0</p>
+        <p>df -k /usr/WebSphere_rpcw0/AppServer/profiles/AppSrv01</p>
+    <br>
+        <h4><< IBMRPCW1 >></h4>
+        <p>df -k /home/wasrpcw1</p>
+        <p>df -k /usr/WebSphere_rpcw1</p>
+        <p>df -k /usr/WebSphere_rpcw1/AppServer/profiles/AppSrv01</p>
+    <br>
+        <h4><< IBMRPCW2 >></h4>
+        <p>df -k /home/wasrpcw2</p>
+        <p>df -k /usr/WebSphere_rpcw2</p>
+        <p>df -k /usr/WebSphere_rpcw2/AppServer/profiles/AppSrv01</p>
+    <br>
+        <h4><< IBMRPCW3 >></h4>
+        <p>df -k /home/wasrpcw3</p>
+        <p>df -k /usr/WebSphere_rpcw3</p>
+        <p>df -k /usr/WebSphere_rpcw3/AppServer/profiles/AppSrv01</p>
+    <br>
+        <h4><< IBMRPCG0 >></h4>
+        <p>df -k /transition_rpcg0</p>
+        <p>df -k /usr/WebSphere_rpcg0</p>
+        <p>df -k /usr/WebSphere_rpcg0/AppServer/profiles/AppSrv01</p>
+    <br>
+        <h4><< IBMCCMP3 >></h4>
+        <p>df -k /home/rdcccmp3</p>
+        <p>df -k /opt/elasticsearch</p>
+        <p>df -k /opt/elasticsearch/ElasticIndexLoader</p>
+    </div>
+<br>
+<br>
+<br>
+<br>
+<a class="btn btn-primary float-left" href="{{ url_for('cl360') }}">&larr; Previous</a>
+<a class="btn btn-primary float-right" href="{{ url_for('wasserver') }}">Next &rarr;</a>
+<br>
+<br>
+{% endblock %}

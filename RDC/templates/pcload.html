@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<div class="container">
+    <br>
+    <br>
+           <h2>Follow these steps to check PC LOAD</h2>
+    <hr>
+           <p>•	Login to ibmrpcd0</p>
+           <p>•	sudo su – rdcrpcd0</p>
+           <p>• cd /home/rdcrpcd0/pcload</p>
+           <p>•	tail -50 pcload.log</p>
+           <p>It's expected to find something like this:</p>
+           <p><img src="/static/img/PCLOAD.png" alt="image loading issues"</p>
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<a class="btn btn-primary float-left" href="{{ url_for('rdc') }}">&larr; Previous</a>
+<a class="btn btn-primary float-right" href="{{ url_for('webservices') }}">Next &rarr;</a>
+<br>
+<br>
+{% endblock %}

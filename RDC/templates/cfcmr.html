@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<div class="container">
+    <br>
+    <br>
+        <h2>Follow these steps to check Create CMR and Find CMR</h2>
+    <hr>
+        <p>• Login to CreateCMR link:</p>
+        <p><a href="https://ibmccmp3.portsmouth.uk.ibm.com:9444/CreateCMR/home"
+                target="_blank">https://ibmccmp3.portsmouth.uk.ibm.com:9444/CreateCMR/home</a></p>
+        <p>Check whether CreateCMR Tool is up or not.</p>
+        <p>• Login on Find CMR link:</p>
+        <p><a href="https://ibmccmp3.portsmouth.uk.ibm.com:9443/DNBSearchWeb/showLogin"
+                target="_blank">https://ibmccmp3.portsmouth.uk.ibm.com:9443/DNBSearchWeb/showLogin</a></p>
+    <br>
+        <p>• 09.1 - Go into ‘CMR Search’, unmark ‘CAP Indicator’ and search for Customer name: </p>
+        <p>JABAQUARA and CMR Issuing Country: Brazil – 631</p>
+    <br>
+        <p><img src="/static/img/createcmr_findcmr1.png" alt="image loading issue" style = "height: 290px"></p>
+    <br>
+        <p><img src="/static/img/createcmr_findcmr2.png" alt="image loading issue" style= "height: 290px"></p>
+    <br>
+        <p>• 09.02 - Go to D&B Search tab, and perform the same search (Customer name/Duns #: JABAQUARA and CMR Issuing
+            Country: Brazil – 631)</p>
+    <br>
+        <p><img src="/static/img/createcmr_findcmr3.png" alt="image loading issue" style ="height: 280px"></p>
+    <br>
+        <p><img src="/static/img/createcmr_findcmr4.png" alt="image loading issue" style ="height: 280px"></p>
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a class="btn btn-primary float-left" href="{{ url_for('elasticsearch') }}">&larr; Previous</a>
+<a class="btn btn-primary float-right" href="{{ url_for('citranslationservices') }}">Next &rarr;</a>
+<br>
+<br>
+
+{% endblock %}

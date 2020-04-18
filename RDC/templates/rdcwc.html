@@ -1,0 +1,174 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<style>
+
+body {
+        font-family: 'Vidaloka', serif;
+        color: white;
+        margin: 0px;
+        padding: 0px;
+        background: url('static/img/bckf.jpg');
+        no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+
+    }
+
+.container1{
+        margin: 140px 176px;
+        padding: -5px 139px;
+        border-radius: 22px;
+        width: 17%;
+        color: #8cc675;
+
+      }
+
+
+ a:-webkit-any-link {
+
+        cursor: pointer;
+        text-decoration: none;
+        color: white;
+    }
+
+    .container2 {
+        position: relative;
+        top: 23px;
+        margin-right: 273px;
+        /* border: 2px solid red; */
+        display: block;
+        float: right;
+        margin-top: -781px;
+        padding: 1px 182px 278px 128px;
+        color: #8cc675;
+    }
+
+    .box {
+
+        /* border: 2px solid blue; */
+        padding-top: -189px;
+        margin-top: 20px;
+        text-decoration: none;
+
+
+
+    }
+/*
+    .container3 {
+        color: black;
+        display: inline-block;
+        position: relative;
+        border: 1px black solid;
+        background: aliceblue;
+        top: -755px;
+        width: 225px;
+        z-index: -1; */
+
+    /* } */
+
+    #time {
+        position: relative;
+        top: 42px;
+        right: -189px;
+        }
+
+
+</style>
+
+
+<body>
+    <header class="header">
+<!--        <div class="left">-->
+<!--            <img src="/static/img//CI.png" alt="image loading issue">-->
+<!--            <p>RDC Applications Checkup</p>-->
+<!--        </div>-->
+
+<!--        <div class="mid">-->
+<!--            <ul class="navbar">-->
+<!--                <li><a href="#" class="active">Home</a></li>-->
+<!--                <li><a href="http://127.0.0.1:5501/RDCAPPS/AboutUs.html" target="_blank">About Us</a></li>-->
+<!--                <li><a href="http://127.0.0.1:5501/RDCAPPS/OurServices.html" target="_blank">Our Services</a></li>-->
+<!--                <li><a href="http://127.0.0.1:5501/RDCAPPS/ContactUs.html" target="_blank">Contact Us</a></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+
+<!--        <div class="right">-->
+<!--            <button class="btn">Contact SM</button>-->
+<!--            <span id="time"></span>-->
+<!--        </div>-->
+    </header>
+    <div class="container1">
+        <h2 style="width: 287px;">Our Applications</h2>
+        <ul id="sys1">
+            <li><a href="/rdcwc/transition">Transition</a></li>
+            <li><a href="/rdcwc/rdc" >RDC</a></li>
+            <li><a href="/rdcwc/pcload">PCLoad</a></li>
+            <li><a href="/rdcwc/webservices">Webservices</a></li>
+            <li><a href="/rdcwc/distribution">Distribution</a></li>
+            <li><a href="/rdcwc/eswtagging">ESW Tagging</a></li>
+            <li><a href="/rdcwc/coverage">Coverage</a></li>
+            <li><a href="/rdcwc/elasticsearch">Elastic Search</a></li>
+            <li><a href="/rdcwc/create-cmr&find-cmr">CreateCMR and Find
+                    CMR</a></li>
+            <li><a href="/rdcwc/ci-translation-services">CI Translation Service</a>
+            </li>
+            <li><a href="/rdcwc/ierp">iERP</a></li>
+            <li><a href="/rdcwc/tgmeservices">TGME Services</a></li>
+            <li><a href="/rdcwc/tgme3">TGME 3.x</a></li>
+            <li><a href="/rdcwc/TWS">TWS</a></li>
+            <li><a href="/rdcwc/CCBT">CCBT</a></li>
+            <li><a href="/rdcwc/digitalservices">RDC_CMR_Digital_Services</a></li>
+            <li><a href="/rdcwc/salesConnect">Sales Connect ( FIND CMR -
+                    IBMCCMP3)</a></li>
+            <li><a href="/rdcwc/TC">Transaction Connection Server</a></li>
+            <li><a href="/rdcwc/AWF">AWF</a></li>
+            <li><a href="/rdcwc/DPROP">DPROP</a></li>
+            <li><a href="/rdcwc/FDB">FDB</a></li>
+            <li><a href="/rdcwc/LH">LH</a></li>
+            <li><a href="/rdcwc/cl360">CL360 Cloud Services</a></li>
+        </ul>
+    </div>
+    <div class="container2">
+        <div class="box">
+            <h2>General Activities</h2>
+            <ul id="sys2">
+                <li><a href='/rdcwc/fs'>FS Status</a></li>
+                <li><a href='/rdcwc/was-server-logs'>WAS Server Logs</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+    <!-- <div class="container3">
+        Current time is <span id="time"></span>
+    </div> -->
+
+
+    <script>
+        let today = new Date();
+        let str = today.toGMTString();  // deprecated! use toUTCString()
+
+        console.log(str);               // Mon, 18 Dec 1995 17:28:35 GMT
+
+        setInterval(updateTime, 1000);
+
+        function updateTime() {
+            time.innerHTML = new Date();
+        }
+
+    </script>
+</body>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+{% endblock %}

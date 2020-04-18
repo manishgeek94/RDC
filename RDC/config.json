@@ -1,0 +1,15 @@
+{
+  "params":
+  {
+      "title_name": "RDC",
+      "head_name": "CI",
+      "main_name": "Customer Information",
+      "card-one": "RDC Weekend Checkup",
+      "card-two": "RDC Data Analyzer",
+      "card-three": "Covid-19 Analyzer",
+      "admin_user": "ciops@in.ibm.com",
+      "admin_password": "rdcciops",
+      "alert-text": "Operations Team is working remotely due to covid-19 pandemic and following full precautions in this precarious situation."
+
+  }
+}

@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<style>
+    .word{
+        font-weight: bold;
+       }
+
+</style>
+
+<div class="container">
+    <br>
+
+        <h2>Follow these steps to check Sales Connect</h2>
+    <hr>
+        <p>First check the WAS console if all applications are up:</p>
+
+        <p>Access to this Was Console with ccm@us.ibm.com id (pass – **************)</p>
+        <p><a href="https://ibmccmp3.portsmouth.uk.ibm.com:9043/ibm/console/logon.jsp"
+                target="_blank">https://ibmccmp3.portsmouth.uk.ibm.com:9043/ibm/console/logon.jsp</a></p>
+    <br>
+        <p><img src="/static/img/salesconnect1.png" alt="image loading issue" style="height: 343px"></p>
+    <br>
+        <p>Sales connect Application takes data from RDC to reflect in their GUI and it all managed through some jobs
+            which use to run after every 2 hour. Make sure that all jobs should finished fine.to check that in Data
+            stage go to DS 11.5</p>
+    <p><span class="word">Project</span> :- Sales Connect</p>
+        <p>marked one is the main JOB Seq which use to synch data from RDC to SC. Whenever you get this job in aborted state rerun the main seq(SCDS_ETL_SEQ) without reset with no limit. No parameter required.</p>
+    <br>
+        <p><img src="/static/img/salesconnect2.png" alt="image loading issue" style="height: 343px"></p>
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a class="btn btn-primary float-left" href="{{ url_for('digitalservices') }}">&larr; Previous</a>
+<a class="btn btn-primary float-right" href="{{ url_for('tc') }}">Next &rarr;</a>
+<br>
+<br>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<div class="container">
+    <br>
+    <br>
+        <h2>Follow these steps to check TGME 3.x</h2>
+    <hr>
+    <br>
+        <h3>TGME 3.0</h3>
+    <br>
+        <p>Open this URL on your browser:</p>
+        <p><a href="https://ibmccmpo.portsmouth.uk.ibm.com:9445/TGMEDUNSBatchService/tgme" target="_blank">https://ibmccmpo.portsmouth.uk.ibm.com:9445/TGMEDUNSBatchService/tgme </a></p>
+        <p>User - ccm@us.ibm.com</p>
+        <p>Pass  - *****************</p>
+    <br>
+        <p>You should see contents like this:</p>
+    <br>
+        <p><img src="/static/img/tgme31.png" alt="image loading issue"></p>
+    <hr>
+    <br>
+        <h3>TGME 3.1</h3>
+    <br>
+        <p>Open this URL on your browser:</p>
+        <p><a href="https://ibmccmpo.portsmouth.uk.ibm.com:9445/TGMEDUNSMonitorService/tgme" target="_blank">https://ibmccmpo.portsmouth.uk.ibm.com:9445/TGMEDUNSMonitorService/tgme </a></p>
+        <p>User - ccm@us.ibm.com</p>
+        <p>Pass  - *****************</p>
+    <br>
+        <p>You should see contents like this:</p>
+    <br>
+        <p><img src="/static/img/tgme32.png" alt="image loading issue"></p>
+    </div>
+<br>
+<br>
+<br>
+<a class="btn btn-primary float-left" href="{{ url_for('tgmeservices') }}">&larr; Previous</a>
+<a class="btn btn-primary float-right" href="{{ url_for('tws') }}">Next &rarr;</a>
+<br>
+<br>
+{% endblock %}

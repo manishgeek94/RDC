@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+
+<style>
+    .container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
+</style>
+<br>
+<br>
+
+<div class="container">
+    <p><img src="/static/images/who.jpg" alt="image loading issue" style="height: 443px"></p>
+</div>
+
+<br>
+<br>
+<div class="container">
+
+<i>
+    <a href="https://www.who.int/" target='_blank' title="World Health Organization">
+        <img src="/static/images/who-icon.png" alt="World Health Organization" style = "height: 44px;">
+    </a>
+</i>
+<i>
+    <a href="https://pib.gov.in/newsite/pmreleases.aspx?mincode=31" target='_blank' title="PIB">
+        <img src="/static/images/pib-icon.png" alt="World Health Organization" style = "height: 44px;">
+    </a>
+</i>
+<i>
+    <a href="https://www.youtube.com/watch?v=mOV1aBVYKGA" target='_blank' title="Youtube">
+        <img src="/static/images/yt-icon.png" alt="World Health Organization" style = "height: 44px;">
+    </a>
+</i>
+<i>
+    <a title="MyGov Innovate" alt="MyGov Innovate" href="https://innovate.mygov.in/" target='_blank'>
+        <img title="MyGov Innovate" alt="World Health Organization" src="/static/images/innovation-logo.png" style = "height: 44px;">
+    </a>
+</i>
+</ul>
+</div>
+
+
+
+<h2 class="btn btn-warning"><a href="{{url_for('covid19') }}">Go back</a></h2>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

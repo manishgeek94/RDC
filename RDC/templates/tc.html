@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<div class="container">
+    <br>
+    <br>
+        <h2>Follow these steps to check TC Server</h2>
+    <hr>
+    <br>
+        <p>Normal operation would show the following screen that is accessible via a Remote Desktop App to  tstbcracmma01.w3-969.ibm.com</p>
+        <h3>UserID: mesadmin</h3>
+        <h3>(Password:- ***********)</h3>
+    <br>
+        <p>Firstly before you check TC connection, please make sure of settings (as like in below screen shot) and having New Remote Desktop app.</p>
+        <p>Remote Desktop app looks like in below screens</p>
+        <p><img src="/static/img/tc1.png" alt="image loading issue" style="height: 43px"></p>
+        <p>To connect to TC server, you can double click on the desktop connection with our server name tstbcracmma01.w3-969.ibm.com (highlighted in the below screen shot) from Remote desktop app.</p>
+        <p><img src="/static/img/tc2.png" alt="image loading issue" style="height: 343px"></p>
+    <br>
+        <p><img src="/static/img/tc3.png" alt="image loading issue" style="height: 343px"></p>
+    <br>
+        <p>In case of any issues with TC server, please use below documents in below Box link:</p>
+        <p>Box Link: <a href="https://ibm.ent.box.com/folder/39947272702" target="_blank">https://ibm.ent.box.com/folder/39947272702</a></p>
+        <p>Useful documents from above Box link are with the names below:</p>
+        <p>Transaction Connection Server GeneralInfo.doc</p>
+        <p>Transaction Connection Server Operations Guide v2019.2.doc</p>
+        <p>Once you login, screen should be like below:</p>
+        <p><img src="/static/img/tc4.png" alt="image loading issue" style="height: 443px"></p>
+    <br>
+
+        <h4>Note: US CMR system is offline from 10:00 pm EST to 7:30 am EST daily & during weekends also, there is no offline duration for CROS BRAZIL system.</h4>
+    <br>
+        <p>If you see the US sessions (Sessions H,I,J,K,X,Y,Z) offline during the above time, there is no issue(No action required), they will auto start after 7:30am EST daily.</p>
+        <p>If you see some problem,
+            you can contact them (via ST or Mail) Christopher O'Toole/Raleigh/IBM,Joan Mackey/Boca Raton/IBM
+            </p>
+    </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<a class="btn btn-primary float-left" href="{{ url_for('salesConnect') }}">&larr; Previous</a>
+<a class="btn btn-primary float-right" href="{{ url_for('awf') }}">Next &rarr;</a>
+<br>
+<br>
+{% endblock %}

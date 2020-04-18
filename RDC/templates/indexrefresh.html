@@ -1,0 +1,81 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+ <div class="cont1">
+     <br>
+     <br>
+      <button> <a href="/rdcwc/cl360">Back to Cloud360</a></button>
+    </div>
+
+
+    <div class="cont2">
+        <br>
+        <br>
+
+        <h3>The following indexes are refreshed over the weekend. The job to refresh them is triggered at 7:30am UTC (1:00 pm IST) every Saturday:</h3>
+        <br>
+        <br>
+        <h4>#seller indexer</h4>
+        <p>c360_seller_indexer</p>
+        <br>
+        <h4>#Company Indexer</h4>
+        <p>client360_comp </p>
+        <p>client360_comp_names </p>
+        <p>client360_comp_gc</p>
+        <p>client360_comp_dc</p>
+        <p>client360_comp_bg</p>
+        <p>client360_comp_gbg</p>
+        <br>
+        <h4>#Industry Indexer</h4>
+        <p>client360_industry ("config/c360/industry/c360_ind_opty_indexer.properties")</p>
+        <p>client360_industry_rev</p>
+        <br>
+        <h4>#Revenue indexer</h4>
+        <p>client360_rev_base</p>
+        <p>client360_rev_annual</p>
+        <br>
+        <h4>#Contract Indexer</h4>
+        <p>client360_contracts</p>
+        <br>
+        <h4>#Contract Summary Indexer</h4>
+        <p>client360_contract_summary</p>
+        <br>
+        <h4>#Competitive Install Base indexer</h4>
+        <p>client360_ibase_comp</p>
+        <p>client360_ibase_comp_aggs</p>
+        <p>client360_ibase_comp_summary</p>
+        <br>
+        <h4>#Duns indexer</h4>
+        <p>client360_dnb </p>
+        <p>client360_dnb_aggs</p>
+        <br>
+        <h4>#Surveys Support Wave 3 indexer</h4>
+        <p>client360_nps</p>
+        <p>client360_surveys_full</p>
+        <br>
+        <h4>#LDW indexer</h4>
+        <p>client360_ldw</p>
+        <br>
+        <h4>#winrate</h4>
+        <p>client360_win_rate_by_client</p>
+        <p>client360_wallet</p>
+        <br>
+        <h4>#nps Sales Experience</h4>
+        <p>client360_nps_salexp</p>
+        <br>
+        <h4>#nps Relationship Experience</h4>
+        <p>client360_nps_relexp</p>
+        <br>
+        <h4>#Sales Connect</h4>
+        <p>client360_sales_connect_accounts</p>
+        <p>client360_sales_connect_opportunity_summary</p>
+        <p>client360_sales_connect_contacts</p>
+        <p>client360_sales_connect_opportunity</p>
+        <p>client360_sales_connect_team_members</p>
+        <p>client360_sales_connect_user_profile</p>
+    </div>
+
+<br>
+<br>
+
+{% endblock %}

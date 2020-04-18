@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<style>
+    .word{
+        font-weight: bold;
+        }
+</style>
+
+<div class="container">
+    <br>
+    <br>
+        <h4>To check the dprop capture lag, perform below query on EUSIDB2B to see if any lagging is there between EUSIDB2B & MAINSHAD.</h4>
+    <hr>
+    <br>
+        <p><span class="word">Query:</span></p>
+        <p>select CURRENT TIMESTAMP as "GMT Run Time", 'RDc' as Area, synchtime, timestampdiff(4,char(current timestamp - synchtime)) as "LAG in minutes",
+            timestampdiff(8,char(current timestamp - synchtime)) as "LAG in hours"
+            from asn.ibmsnap_register where global_record = 'Y'
+            union
+            select CURRENT TIMESTAMP as "GMT Run Time", 'CISF' as Area, synchtime, timestampdiff(4,char(current timestamp - synchtime)) as "LAG in minutes",
+            timestampdiff(8,char(current timestamp - synchtime)) as "LAG in hours"
+            from asnclient4.ibmsnap_register where global_record = 'Y' with ur
+            </p>
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a class="btn btn-primary float-left" href="{{ url_for('awf') }}">&larr; Previous</a>
+<a class="btn btn-primary float-right" href="{{ url_for('fdb') }}">Next &rarr;</a>
+<br>
+<br>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+{% block body%}
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Graph</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+</head>
+<body>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="chart" id="graph1">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="chart" id="graph">
+    <script>
+        var graphs = {{plot | safe}};
+        Plotly.plot('graph',graphs,{});
+    </script>
+</div>
+
+<h2 class="btn btn-warning"><a href="{{url_for('rdcda2') }}">Check how many got coverage?</a></h2>
+
+<h2 class="btn btn-warning"><a href="{{url_for('rdcda0') }}">Back</a></h2>
+
+<!--<h2 class="btn btn-warning"><a href="{{url_for('covid_pre') }}">Are you Safe? Check yourself here!</a></h2>-->
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}
+
