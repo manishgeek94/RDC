@@ -25,13 +25,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'da
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-file = open("model.pkl", 'rb')
-clf = pickle.load(file)
-file.close()
 
 # config file gets read
-with open("config.json", "r") as c:
-    params = json.load(c)["params"]  # loading the parameters here from config file
 
 
 class Application(db.Model):
@@ -41,7 +36,13 @@ class Application(db.Model):
     app_date = db.Column(db.DateTime, nullable=True, default=datetime.utcnow)
 
 
-#
+file = open("model.pkl", 'rb')
+clf = pickle.load(file)
+file.close()
+
+with open("config.json", "r") as c:
+    params = json.load(c)["params"]  # loading the parameters here from config file
+
 # class User(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
 #     username = db.Column(db.String(20), unique=True, nullable=False)
@@ -415,8 +416,8 @@ def rdcda2():
 @app.route("/rdcda3")
 def rdcda3():
     if 'user' in session and session['user'] == params['admin_user']:
-        idm_sources = pd.read_csv('static/RDC_Data/IDM_March_Sources.csv')
-        idm = pd.DataFrame(idm_sources)
+        # idm_sources = pd.read_csv('static/RDC_Data/IDM_March_Sources.csv')
+        # idm = pd.DataFrame(idm_sources)
 
         # Record_count = list(range(idm['RECORD_CREATED']))
         Record_count = [2300, 7240, 7600, 8982, 2977, 4101, 9519, 2901]
@@ -478,12 +479,12 @@ def df_from_csv(file_name):
 
 
 """ df_cases is the main dataframe which has all the values """
-df_cases = df_from_csv(cases)
-df_deaths = df_from_csv(deaths)
-df_cases['deaths'] = df_deaths['cases']
-# df_final = df_cases.append(df_deaths['cases'])
-df_cases.to_csv('output.csv', index=False)
-# print(df_final)
+# df_cases = df_from_csv(cases)
+# df_deaths = df_from_csv(deaths)
+# df_cases['deaths'] = df_deaths['cases']
+# # df_final = df_cases.append(df_deaths['cases'])
+# df_cases.to_csv('output.csv', index=False)
+# # print(df_final)
 
 
 ''' reading the data from output.csv '''
@@ -566,24 +567,25 @@ def covidt():
         return redirect(url_for('login'))
 
 
-@app.route('/covid_pre', methods=['GET', 'POST'])
-def covid_pre():
-    if 'user' in session and session['user'] == params['admin_user']:
-        if request.method == 'POST':
-            dict = request.form
-            fever = float(dict['fever'])
-            age = int(dict['age'])
-            body_pain = int(dict['body_pain'])
-            runny_nose = int(dict['runny_nose'])
-            diff_breath = int(dict['diff_breath'])
-            # code for inference
-            input_features = [fever, age, body_pain, runny_nose, diff_breath]
-            virus_prob = clf.predict_proba([input_features])[0][1]
-            print(virus_prob)
-            return render_template('show_proba.html', params=params, inf=round(virus_prob * 100))
-        return render_template('covid_pre.html', params=params)
-    else:
-        return redirect(url_for('login'))
+#
+# @app.route('/covid_pre', methods=['GET', 'POST'])
+# def covid_pre():
+#     if 'user' in session and session['user'] == params['admin_user']:
+#         if request.method == 'POST':
+#             dict = request.form
+#             fever = float(dict['fever'])
+#             age = int(dict['age'])
+#             body_pain = int(dict['body_pain'])
+#             runny_nose = int(dict['runny_nose'])
+#             diff_breath = int(dict['diff_breath'])
+#             # code for inference
+#             input_features = [fever, age, body_pain, runny_nose, diff_breath]
+#             virus_prob = clf.predict_proba([input_features])[0][1]
+#             print(virus_prob)
+#             return render_template('show_proba.html', params=params, inf=round(virus_prob * 100))
+#         return render_template('covid_pre.html', params=params)
+#     else:
+#         return redirect(url_for('login'))
 
 
 @app.route('/who')
@@ -600,12 +602,33 @@ def logout():
     return redirect(url_for('login'))
 
 
-#
-@app.route("/status_app")
+@app.route("/status_app", methods=['GET', 'POST'])
 def appstat():
+    # if 'user' in session and session['user'] == params['admin_user']:
+
     applications = Application.query.all()
-    return render_template('status_apps.html', applications=applications, len=len(applications),params=params)
+    if request.method == 'POST':
+        for app in applications:
+            application_status = request.form.get(app.app_name)
+            print(application_status)
+            if app.app_status == application_status:
+                pass
+            else:
+                app.app_status = application_status
+                app.app_date = datetime.utcnow()
+                db.session.commit()
+
+        applications = Application.query.all()
+        return redirect('status')
+
+    return render_template('status_apps.html', applications=applications, params=params)
+
+
+@app.route("/status", methods=['GET', 'POST'])
+def app_current_stat():
+    applications = Application.query.all()
+    return render_template('updated_status.html', applications=applications, params=params)
 
 
 if __name__ == '__main__':
-    app.run(port=1000, debug=True)
+    app.run(debug=True)

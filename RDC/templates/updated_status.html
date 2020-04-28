@@ -1,22 +1,28 @@
 {% extends 'layout.html' %}
 {% block body%}
+
+
 <html lang="en">
 <head>
 <title>Table V02</title>
 
 <style>
-select option[value="red"] {
+ .red{
   background-color: #f00;
-  hover:none
+<!--  padding-top: 5px;-->
+<!--  padding-right: 5px;-->
+<!--  padding-bottom: 5px;-->
+<!--  padding-left: 5px;-->
 }
 
-select option[value="green"] {
+.green{
   background-color: #0f0;
+<!--  padding-top: 10px;-->
+<!--  padding-right: 5px;-->
+<!--  padding-bottom: 10px;-->
+<!--  padding-left: 10px;-->
 }
 
-select option[value="3"] {
-  background-color: #00f;
-}
 
 
 </style>
@@ -41,46 +47,53 @@ select option[value="3"] {
 
 </head>
 <body>
-<form method="post" action="/status_app">
+<form method="POST" action="/">
 	<div class="limiter">
-		
 		<div class="container-table100">
 			<div class="wrap-table100">
 					<div class="table">
+
 						<div class="row header">
+
 							<div class="cell">
 								Application Name
 							</div>
 							<div class="cell">
 								Status
 							</div>
+                            <div class="cell">
+								<center>Updated by</center>
+							</div>
+                            <div class="cell">
+								<center>Last_Update_Time</center>
+							</div>
 						</div>
-
 						{%for app in applications %}
-
 						<div class="row">
 							<div class="cell" data-title="Application_name">
 								<b>{{app.app_name}}</b>
 							</div>
-
-							<div class="cell" data-title="status">
-								<select name = "{{app.app_name}}">
-										<option disabled> Please select the status</option>
-							            <option value="red" >Red</option>
-										<option value="green">Green</option>
-								</select>
+							<div class="{{app.app_status}}" data-title="status">
+    									{{app.app_status}}
+							</div>
+                            <div class="cell" data-title="Application_name">
+								<b><center>{{params['admin_user']}}</center></b>
+							</div>
+                            <div class="cell" data-title="Application_name">
+								<b><center>{{app.app_date}}</center></b>
 							</div>
 						</div>
-							{% endfor %}
+						{% endfor %}
 						<br>
-						<button type="submit" class="btn btn-primary">Submit</button>
+
 					</div>
+				<button class="btn btn-secondary"><a href="/status_app">Update</a></button>
 			</div>
 		</div>
-
 	</div>
-</form>
 
+
+</form>
 
 <script src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js') }}" type="8c3759602ea183e4fa03938f-text/javascript"></script>
 
